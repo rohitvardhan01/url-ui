@@ -20,8 +20,8 @@ export default function UrlForm() {
     fetch(`http://localhost:8080/${shortened}`)
       .then((res)=>res.text())
       .then((res) => {
-        if (res == "NOT_FOUND" || res == "EXPIRED"){
-         const message = (res == "EXPIRED")?"This URL has expired. ⏳":"This short URL does not exist. 🚫";
+        if (res === "NOT_FOUND" || res === "EXPIRED"){
+         const message = (res === "EXPIRED")?"This URL has expired. ⏳":"This short URL does not exist. 🚫";
           alert(message);
           setUrl('');
           setShortened('');
@@ -45,7 +45,7 @@ export default function UrlForm() {
         {shortened && (
           <p>
             Short URL:{" "}
-            <a
+            <p
               onClick={RedirectPage}
               style={{
                 cursor: "pointer",
@@ -54,7 +54,7 @@ export default function UrlForm() {
               }}
             >
               http://localhost:8080/{shortened}
-            </a>
+            </p>
           </p>
         )}
       </div>
