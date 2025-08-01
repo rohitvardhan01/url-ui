@@ -7,7 +7,7 @@ export default function UrlForm() {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/shorten", url, {
+      const res = await axios.post("https://truthful-luck-production.up.railway.app/shorten", url, {
         headers: { "Content-Type": "text/plain" },
       });
       setShortened(res.data);
@@ -17,7 +17,7 @@ export default function UrlForm() {
   };
 
   const RedirectPage = () => {
-    fetch(`http://localhost:8080/${shortened}`)
+    fetch(`https://truthful-luck-production.up.railway.app/${shortened}`)
       .then((res)=>res.text())
       .then((res) => {
         if (res === "NOT_FOUND" || res === "EXPIRED"){
